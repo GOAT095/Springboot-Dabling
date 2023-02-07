@@ -5,25 +5,53 @@ import java.time.LocalDate;
 public class Student {
     private long id;
     private String name;
-    private int age;
-    private LocalDate dob; // day of birth
     private String email;
+    private LocalDate dob; // day of birth
+    private int age;
 
-    public Student() {
-    }
-
-    public Student(long id, String name, int age, LocalDate dob, String email) {
+    public Student(long id, String name, String email, LocalDate dob,int age) {
         this.id = id;
         this.name = name;
-        this.age = age;
-        this.dob = dob;
         this.email = email;
+        this.dob = dob;
+        this.age = age;
     }
 
-    public Student(String name, int age, LocalDate dob, String email) {
+    public Student(String name, String email, LocalDate dob, int age) {
         this.name = name;
-        this.age = age;
-        this.dob = dob;
         this.email = email;
+        this.dob = dob;
+        this.age = age;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", dob=" + dob +
+                ", age=" + age +
+                '}';
     }
 }
