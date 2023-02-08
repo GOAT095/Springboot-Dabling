@@ -34,7 +34,7 @@ public class StudentController {
     }
     @DeleteMapping("{id}")
     public Boolean DeleteStudent(@PathVariable UUID id){
-//        this.studentService.
-        return true;
+
+        return studentService.DeleteStudent(id);
     }
 }
