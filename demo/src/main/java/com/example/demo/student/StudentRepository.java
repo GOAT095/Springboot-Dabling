@@ -7,4 +7,6 @@ import java.util.UUID;
 
 public interface StudentRepository extends CrudRepository<Student , UUID> {
     List<Student> findAll();
+
+    Student findAllById(UUID id);
 }
