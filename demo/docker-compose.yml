@@ -1,13 +1,13 @@
 version: '3.8'
 services:
-  app:
-    container_name: springboot-postgresql
-    image: springboot-postgresql
-    build: ./
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgresqldb
+# app:
+#    container_name: springboot-postgresql
+#    image: springboot-postgresql
+#    build: ./
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - postgresqldb
   postgresqldb:
     image: postgres
     ports:

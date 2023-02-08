@@ -11,11 +11,20 @@ import java.util.List;
 @Service
 public class StudentService {
 
+    private final StudentRepository studentRepository;
+
+
+
+    public StudentService(StudentRepository rep)
+    {
+        studentRepository = rep;
+    }
+
     public List<Student> getStudents() {
-        return List.of(new Student(1L,
-                "hamid",
-                "hamid.dwada@mail.com",
-                LocalDate.of(2000, Month.JANUARY, 1),
-                23));
+        return studentRepository.findAll();
+    }
+
+    public Student create(Student student) {
+        return studentRepository.save(student);
     }
 }

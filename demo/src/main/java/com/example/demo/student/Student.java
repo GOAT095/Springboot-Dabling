@@ -1,15 +1,26 @@
 package com.example.demo.student;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.time.LocalDate;
+import java.util.UUID;
+
+@Entity()
+@Table()
 
 public class Student {
-    private long id;
+    @Id
+    @GeneratedValue()
+    private UUID id;
     private String name;
     private String email;
     private LocalDate dob; // day of birth
     private int age;
 
-    public Student(long id, String name, String email, LocalDate dob,int age) {
+    public Student(UUID id, String name, String email, LocalDate dob,int age) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -21,12 +32,15 @@ public class Student {
         this.name = name;
         this.email = email;
         this.dob = dob;
+        this.id = UUID.randomUUID();
         this.age = age;
     }
 
-    public long getId() {
-        return id;
+    public Student() {
+
     }
+
+
 
     public String getName() {
         return name;
