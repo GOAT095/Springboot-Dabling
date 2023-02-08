@@ -1,6 +1,7 @@
 package com.example.demo.student;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,19 +13,23 @@ public class StudentService {
     private final StudentRepository studentRepository;
 
 
-
-    public StudentService(StudentRepository rep)
-    {
+    public StudentService(StudentRepository rep) {
         studentRepository = rep;
     }
 
     public List<Student> getStudents() {
         return studentRepository.findAll();
     }
-    public Student getStudent(UUID id){
+
+    public Student getStudent(UUID id) {
         return studentRepository.findAllById(id);
     }
+
     public Student create(Student student) {
         return studentRepository.save(student);
+    }
+
+    public Boolean DeleteStudent(UUID id) {
+        return studentRepository.deleteStudentById(id);
     }
 }

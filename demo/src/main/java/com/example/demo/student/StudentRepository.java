@@ -9,4 +9,5 @@ public interface StudentRepository extends CrudRepository<Student , UUID> {
     List<Student> findAll();
 
     Student findAllById(UUID id);
+    Boolean deleteStudentById(UUID id);
 }

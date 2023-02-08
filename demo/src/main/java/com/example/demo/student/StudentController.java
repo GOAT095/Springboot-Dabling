@@ -28,8 +28,13 @@ public class StudentController {
     }
 
     @PostMapping()
-    public Student create(@RequestBody Student student)
+    public Student createStudent(@RequestBody Student student)
     {
         return studentService.create(student);
+    }
+    @DeleteMapping("{id}")
+    public Boolean DeleteStudent(@PathVariable UUID id){
+//        this.studentService.
+        return true;
     }
 }
