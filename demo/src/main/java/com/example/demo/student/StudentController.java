@@ -1,11 +1,8 @@
 package com.example.demo.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -28,7 +25,7 @@ public class StudentController {
     }
 
     @PostMapping()
-    public Student createStudent(@RequestBody Student student)
+    public Optional<Student> createStudent(@RequestBody Student student)
     {
         return studentService.create(student);
     }

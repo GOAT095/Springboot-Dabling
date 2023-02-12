@@ -1,7 +1,6 @@
 package com.example.demo.student;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,8 +24,12 @@ public class StudentService {
         return studentRepository.findAllById(id);
     }
 
-    public Student create(Student student) {
-        return studentRepository.save(student);
+    public Optional<Student> create(Student student) {
+        Optional<Student> s = studentRepository.findStudentByEmail(student.getEmail());
+        if(s.isPresent()){
+            throw new IllegalStateException("email already taken !");
+        }
+        return Optional.of(studentRepository.save(student));
     }
 
     public Boolean DeleteStudent(UUID id) {

@@ -17,23 +17,21 @@ public class Student {
     private UUID id;
     private String name;
     private String email;
-    private LocalDate dob; // day of birth
+    private LocalDate dob; // date of birth
     private int age;
 
-    public Student(UUID id, String name, String email, LocalDate dob,int age) {
+    public Student(UUID id, String name, String email, LocalDate dob) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.dob = dob;
-        this.age = age;
     }
 
-    public Student(String name, String email, LocalDate dob, int age) {
+    public Student(String name, String email, LocalDate dob) {
         this.name = name;
         this.email = email;
         this.dob = dob;
         this.id = UUID.randomUUID();
-        this.age = age;
     }
 
     public Student() {
