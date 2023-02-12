@@ -33,6 +33,10 @@ public class StudentService {
     }
 
     public Boolean DeleteStudent(UUID id) {
+        Boolean b = studentRepository.existsById(id);
+        if(!b){
+            throw new IllegalStateException("student with id : "+ id + "does not exists");
+        }
         return studentRepository.deleteStudentById(id);
     }
 }
