@@ -39,4 +39,12 @@ public class StudentService {
         }
         return studentRepository.deleteStudentById(id);
     }
+    public Boolean updateStudent(String name, Student student){
+        Optional<Student> s = studentRepository.findStudentByName(name);
+        if(s.isPresent())
+        {
+            Optional.of(studentRepository.deleteStudentById());
+        }
+        return true;
+    }
 }

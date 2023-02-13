@@ -29,6 +29,12 @@ public class StudentController {
     {
         return studentService.create(student);
     }
+
+    @PutMapping("{name}")
+    public Boolean updateStudent(@PathVariable String name, @RequestBody Student student){
+        studentService.updateStudent(name, student);
+        return true;
+    }
     @DeleteMapping("{id}")
     public Boolean DeleteStudent(@PathVariable UUID id){
 
