@@ -30,9 +30,9 @@ public class StudentController {
         return studentService.create(student);
     }
 
-    @PutMapping("{name}")
-    public Boolean updateStudent(@PathVariable String name, @RequestBody Student student){
-        studentService.updateStudent(name, student);
+    @PutMapping("{id}")
+    public Boolean updateStudent(@PathVariable UUID id, @RequestParam(required = false) String name, @RequestParam(required = false) String email){
+        studentService.updateStudent(id, name, email);
         return true;
     }
     @DeleteMapping("{id}")

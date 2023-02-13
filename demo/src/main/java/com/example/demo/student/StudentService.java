@@ -1,8 +1,10 @@
 package com.example.demo.student;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -39,11 +41,18 @@ public class StudentService {
         }
         return studentRepository.deleteStudentById(id);
     }
-    public Boolean updateStudent(String name, Student student){
-        Optional<Student> s = studentRepository.findStudentByName(name);
-        if(s.isPresent())
-        {
-            Optional.of(studentRepository.deleteStudentById());
+    @Transactional
+    public Boolean updateStudent(UUID id, String name, String email){
+        Student s = studentRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("student with id : " + id + "Not found !"));
+        if(name != null && !Objects.equals(s.getName(), name)){
+            s.setName(name);
+        }
+        if(email != null && !Objects.equals(s.getEmail(), email)){
+            Optional<Student> student = studentRepository.findStudentByEmail(email);
+            if(student.isPresent()){
+                throw new IllegalStateException("email already taken !");
+            }
+            s.setEmail(email);
         }
         return true;
     }

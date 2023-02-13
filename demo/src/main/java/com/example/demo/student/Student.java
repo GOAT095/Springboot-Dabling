@@ -18,6 +18,7 @@ public class Student {
     private String name;
     private String email;
     private LocalDate dob; // date of birth
+
     private int age;
 
     public Student(UUID id, String name, String email, LocalDate dob) {
@@ -37,6 +38,11 @@ public class Student {
     public Student() {
 
     }
+
+    public UUID getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
